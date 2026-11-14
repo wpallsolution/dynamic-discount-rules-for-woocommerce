@@ -1,0 +1,54 @@
+/**
+ * WooCommerce Dynamic Discount Rules - Frontend Price & Badge Styling
+ *
+ * Enforces the exact requested price display order:
+ * 1. Discounted Price (ins)
+ * 2. Strikethrough Regular Price (del)
+ * 3. (10% off) Badge
+ */
+
+.wcdr-price-wrapper {
+	display: inline-flex !important;
+	align-items: baseline !important;
+	flex-wrap: wrap !important;
+	gap: 6px !important;
+	vertical-align: middle !important;
+}
+
+.wcdr-price-wrapper ins.wcdr-discounted-price {
+	order: 1 !important;
+	text-decoration: none !important;
+	font-weight: 700 !important;
+	color: #16a34a !important;
+}
+
+.wcdr-price-wrapper del.wcdr-regular-price {
+	order: 2 !important;
+	opacity: 0.6 !important;
+	text-decoration: line-through !important;
+	font-weight: normal !important;
+	margin-left: 2px !important;
+}
+
+.wcdr-price-wrapper .wcdr-discount-badge {
+	order: 3 !important;
+	display: none !important;
+	font-size: 0.85em !important;
+	font-weight: 600 !important;
+	color: #16a34a !important;
+	background: #e8f5e9 !important;
+	padding: 2px 7px !important;
+	border-radius: 4px !important;
+	vertical-align: middle !important;
+	line-height: 1.2 !important;
+	margin-left: 2px !important;
+}
+
+/* Ensure single product page summary prices also respect the order */
+.single-product .summary .price .wcdr-price-wrapper,
+.woocommerce-variation-price .wcdr-price-wrapper,
+.cart_item .wcdr-price-wrapper,
+.mini-cart .wcdr-price-wrapper {
+	display: inline-flex !important;
+	align-items: baseline !important;
+}
